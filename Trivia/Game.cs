@@ -53,14 +53,20 @@ namespace UglyTrivia
         public bool add(String playerName)
         {
             players.Add(playerName);
-            places[howManyPlayers()] = 0;
-            purses[howManyPlayers()] = 0;
-            inPenaltyBox[howManyPlayers()] = false;
+
+            SetupPlayerState();
 
             ConsoleWriteLine(playerName + " was added");
             ConsoleWriteLine("They are player number " + players.Count);
 
             return true;
+        }
+
+        private void SetupPlayerState()
+        {
+            places[howManyPlayers()] = 0;
+            purses[howManyPlayers()] = 0;
+            inPenaltyBox[howManyPlayers()] = false;
         }
 
         protected virtual void ConsoleWriteLine(string text)
