@@ -26,6 +26,11 @@ namespace UglyTrivia
 
         public Game()
         {
+            InitialiseQuestions();
+        }
+
+        private void InitialiseQuestions()
+        {
             for (int i = 0; i < 50; i++)
             {
                 popQuestions.AddLast("Pop Question " + i);
