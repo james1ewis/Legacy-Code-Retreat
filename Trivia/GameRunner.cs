@@ -14,13 +14,17 @@ namespace Trivia
 
         public static void main(String[] args)
         {
+            Main2(new Random());
+
+        }
+
+        public static void Main2(Random rand)
+        {
             Game aGame = new Game();
 
             aGame.add("Chet");
             aGame.add("Pat");
             aGame.add("Sue");
-
-            Random rand = new Random();
 
             do
             {
@@ -39,7 +43,6 @@ namespace Trivia
 
 
             } while (notAWinner);
-
         }
 
 

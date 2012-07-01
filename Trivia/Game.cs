@@ -9,7 +9,7 @@ namespace UglyTrivia
     {
 
 
-        List<string> players = new List<string>();
+        protected List<string> players = new List<string>();
 
         int[] places = new int[6];
         int[] purses = new int[6];
@@ -47,8 +47,6 @@ namespace UglyTrivia
 
         public bool add(String playerName)
         {
-
-
             players.Add(playerName);
             places[howManyPlayers()] = 0;
             purses[howManyPlayers()] = 0;
@@ -56,10 +54,11 @@ namespace UglyTrivia
 
             ConsoleWriteLine(playerName + " was added");
             ConsoleWriteLine("They are player number " + players.Count);
+
             return true;
         }
 
-        private void ConsoleWriteLine(string text)
+        protected virtual void ConsoleWriteLine(string text)
         {
             ApprovalUtilities.SimpleLogger.Logger.Message(text); // used for approval tests (golden master)
             Console.WriteLine(text);
@@ -200,7 +199,7 @@ namespace UglyTrivia
         }
 
         public bool wrongAnswer()
-        {
+        {   
             ConsoleWriteLine("Question was incorrectly answered");
             ConsoleWriteLine(players[currentPlayer] + " was sent to the penalty box");
             inPenaltyBox[currentPlayer] = true;
